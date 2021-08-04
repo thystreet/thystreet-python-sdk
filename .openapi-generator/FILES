@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/DeviceApi.md
@@ -14,11 +13,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_device_api.py
-test/test_device_status_dto.py
-test/test_device_token_dto.py
-test/test_order_api.py
-test/test_order_status_dto.py
 thystreet/__init__.py
 thystreet/api/__init__.py
 thystreet/api/device_api.py
