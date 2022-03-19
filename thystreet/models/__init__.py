@@ -9,6 +9,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from thystreet.model.device_status_dto import DeviceStatusDto
 from thystreet.model.device_token_dto import DeviceTokenDto
 from thystreet.model.order_status_dto import OrderStatusDto
+from thystreet.model.set_device_details_dto import SetDeviceDetailsDto
