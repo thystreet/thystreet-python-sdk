@@ -13,7 +13,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_set_device_details_dto.py
 thystreet/__init__.py
 thystreet/api/__init__.py
 thystreet/api/device_api.py
