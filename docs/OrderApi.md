@@ -5,7 +5,7 @@ All URIs are relative to *https://cheffy-api.thystreet.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_order_by_id**](OrderApi.md#get_order_by_id) | **GET** /order/params/{orderToken} | 
-[**set_status**](OrderApi.md#set_status) | **PUT** /order/status | 
+[**set_status**](OrderApi.md#set_status) | **PUT** /order/status/{orderToken} | 
 
 
 # **get_order_by_id**
@@ -43,7 +43,7 @@ configuration = thystreet.Configuration(
 with thystreet.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = order_api.OrderApi(api_client)
-    order_token = "orderToken_example" # str | This is the id recieved from the qrcode
+    order_token = "thystreet-FucAdwCipV6nLlVsesnu" # str | This is the id recieved from the qrcode or on your webhook
 
     # example passing only required values which don't have defaults set
     try:
@@ -57,7 +57,7 @@ with thystreet.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_token** | **str**| This is the id recieved from the qrcode |
+ **order_token** | **str**| This is the id recieved from the qrcode or on your webhook |
 
 ### Return type
 
@@ -78,13 +78,14 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns order information for the given id |  -  |
+**400** | Invalid order token |  -  |
 **401** | Unauthorized. |  -  |
 **403** | Forbidden. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_status**
-> set_status(order_status_dto)
+> set_status(order_token, order_status_dto)
 
 
 
@@ -119,14 +120,14 @@ configuration = thystreet.Configuration(
 with thystreet.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = order_api.OrderApi(api_client)
+    order_token = "thystreet-FucAdwCipV6nLlVsesnu" # str | This is the id recieved from the qrcode or on your webhook
     order_status_dto = OrderStatusDto(
-        order_id="order_id_example",
         status="CONFIRMED",
     ) # OrderStatusDto | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_instance.set_status(order_status_dto)
+        api_instance.set_status(order_token, order_status_dto)
     except thystreet.ApiException as e:
         print("Exception when calling OrderApi->set_status: %s\n" % e)
 ```
@@ -136,6 +137,7 @@ with thystreet.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **order_token** | **str**| This is the id recieved from the qrcode or on your webhook |
  **order_status_dto** | [**OrderStatusDto**](OrderStatusDto.md)|  |
 
 ### Return type
@@ -157,6 +159,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Updates order status. |  -  |
+**400** | Invalid order token |  -  |
 **401** | Unauthorized. |  -  |
 **403** | Forbidden. |  -  |
 

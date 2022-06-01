@@ -90,10 +90,10 @@ All URIs are relative to *https://cheffy-api.thystreet.com/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DeviceApi* | [**generate_token**](docs/DeviceApi.md#generate_token) | **GET** /device/generate/{deviceId} | 
-*DeviceApi* | [**set_details**](docs/DeviceApi.md#set_details) | **PUT** /device/details | 
+*DeviceApi* | [**set_details**](docs/DeviceApi.md#set_details) | **PUT** /device/details | Toggle your device tariff when your device goes online using this api.
 *DeviceApi* | [**set_token**](docs/DeviceApi.md#set_token) | **PUT** /device/token | 
 *OrderApi* | [**get_order_by_id**](docs/OrderApi.md#get_order_by_id) | **GET** /order/params/{orderToken} | 
-*OrderApi* | [**set_status**](docs/OrderApi.md#set_status) | **PUT** /order/status | 
+*OrderApi* | [**set_status**](docs/OrderApi.md#set_status) | **PUT** /order/status/{orderToken} | 
 
 
 ## Documentation For Models

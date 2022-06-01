@@ -91,16 +91,18 @@ class OrderApi(object):
                 'auth': [
                     'thystreetAuth'
                 ],
-                'endpoint_path': '/order/status',
+                'endpoint_path': '/order/status/{orderToken}',
                 'operation_id': 'set_status',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'order_token',
                     'order_status_dto',
                 ],
                 'required': [
+                    'order_token',
                     'order_status_dto',
                 ],
                 'nullable': [
@@ -116,12 +118,16 @@ class OrderApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'order_token':
+                        (str,),
                     'order_status_dto':
                         (OrderStatusDto,),
                 },
                 'attribute_map': {
+                    'order_token': 'orderToken',
                 },
                 'location_map': {
+                    'order_token': 'path',
                     'order_status_dto': 'body',
                 },
                 'collection_format_map': {
@@ -150,7 +156,7 @@ class OrderApi(object):
         >>> result = thread.get()
 
         Args:
-            order_token (str): This is the id recieved from the qrcode
+            order_token (str): This is the id recieved from the qrcode or on your webhook
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -215,6 +221,7 @@ class OrderApi(object):
 
     def set_status(
         self,
+        order_token,
         order_status_dto,
         **kwargs
     ):
@@ -223,10 +230,11 @@ class OrderApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.set_status(order_status_dto, async_req=True)
+        >>> thread = api.set_status(order_token, order_status_dto, async_req=True)
         >>> result = thread.get()
 
         Args:
+            order_token (str): This is the id recieved from the qrcode or on your webhook
             order_status_dto (OrderStatusDto):
 
         Keyword Args:
@@ -286,6 +294,8 @@ class OrderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['order_token'] = \
+            order_token
         kwargs['order_status_dto'] = \
             order_status_dto
         return self.set_status_endpoint.call_with_http_info(**kwargs)
