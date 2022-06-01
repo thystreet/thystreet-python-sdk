@@ -5,7 +5,7 @@ All URIs are relative to *https://cheffy-api.thystreet.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**generate_token**](DeviceApi.md#generate_token) | **GET** /device/generate/{deviceId} | 
-[**set_details**](DeviceApi.md#set_details) | **PUT** /device/details | 
+[**set_details**](DeviceApi.md#set_details) | **PUT** /device/details | Toggle your device tariff when your device goes online using this api.
 [**set_token**](DeviceApi.md#set_token) | **PUT** /device/token | 
 
 
@@ -87,7 +87,7 @@ void (empty response body)
 # **set_details**
 > set_details(set_device_details_dto)
 
-
+Toggle your device tariff when your device goes online using this api.
 
 ### Example
 
@@ -127,6 +127,7 @@ with thystreet.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
+        # Toggle your device tariff when your device goes online using this api.
         api_instance.set_details(set_device_details_dto)
     except thystreet.ApiException as e:
         print("Exception when calling DeviceApi->set_details: %s\n" % e)

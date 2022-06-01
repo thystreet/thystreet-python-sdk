@@ -269,7 +269,7 @@ class DeviceApi(object):
         set_device_details_dto,
         **kwargs
     ):
-        """set_details  # noqa: E501
+        """Toggle your device tariff when your device goes online using this api.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

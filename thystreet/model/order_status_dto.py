@@ -58,6 +58,7 @@ class OrderStatusDto(ModelNormal):
     allowed_values = {
         ('status',): {
             'CONFIRMED': "CONFIRMED",
+            'PENDING': "PENDING",
             'COMPLETED': "COMPLETED",
             'FAILED': "FAILED",
         },
@@ -87,7 +88,6 @@ class OrderStatusDto(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'order_id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
         }
 
@@ -97,7 +97,6 @@ class OrderStatusDto(ModelNormal):
 
 
     attribute_map = {
-        'order_id': 'orderId',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
@@ -108,11 +107,10 @@ class OrderStatusDto(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, order_id, status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, *args, **kwargs):  # noqa: E501
         """OrderStatusDto - a model defined in OpenAPI
 
         Args:
-            order_id (str): Order ID
             status (str): Set order status
 
         Keyword Args:
@@ -173,7 +171,6 @@ class OrderStatusDto(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.order_id = order_id
         self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -195,11 +192,10 @@ class OrderStatusDto(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, order_id, status, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, *args, **kwargs):  # noqa: E501
         """OrderStatusDto - a model defined in OpenAPI
 
         Args:
-            order_id (str): Order ID
             status (str): Set order status
 
         Keyword Args:
@@ -258,7 +254,6 @@ class OrderStatusDto(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.order_id = order_id
         self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
